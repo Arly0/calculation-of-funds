@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>4</title>
+</head>
+<body onload="main()">
+
+<script type="text/javascript">
+	function helper(nextd,nextm,money,days){
+		for(var i=1;i<=nextd;i++)
+		{
+			if(days == 0)
+			{
+				alert("Общая сумма хранения контейнера составляет: "+money);
+				process.exit(-1);
+			}
+			else
+				{
+					money += nextm;
+					days -= 1;
+				}
+		}
+	}
+
+	function main(){
+		var days = parseInt(prompt("Введите количество дней хранения контейнера"));
+		var money = 0;
+
+		function resolve(){
+			if(days >= nextd)
+			{
+				money += (nextd*nextm);
+				days -= nextd;
+			}
+			else
+				helper(nextd,nextm,money,days);
+			
+		}
+
+		var nextd = 4;
+		var nextm = 4;
+		resolve();
+
+		nextd = 5;
+		nextm = 14; 
+		resolve();
+
+
+		nextd = 5;
+		nextm = 30;
+		resolve();
+
+		nextd = 15;
+		nextm = 36;
+		resolve();
+
+		money += (50*days);
+		alert("Общая сумма хранения контейнера составляет: "+money);
+		// 16+70+150+540+3800
+	}
+
+</script>
+</body>
+</html>
